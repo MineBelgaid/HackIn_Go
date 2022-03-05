@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
+	let navigate = useNavigate();
 	return (
 		<section className='relative h-screen flex flex-col justify-center items-center px-10 overflow-hidden'>
 			<img
@@ -43,6 +45,7 @@ const Register = () => {
 					className='py-4 px-14 my-4 bg-[#FFCB00] rounded-xl self-center font-bold'
 					type='submit'
 					value='REGISTER'
+					onClick={() => navigate('/interests')}
 				/>
 			</form>
 			<p className='text-xs text-[#3D7DCA] font-medium'>

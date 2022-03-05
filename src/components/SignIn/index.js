@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
+	let navigate = useNavigate();
 	return (
 		<section className='h-screen relative flex flex-col justify-center items-center'>
 			<img
@@ -37,6 +39,7 @@ const SignIn = () => {
 					className='py-4 px-14 my-4 bg-[#FFCB00] rounded-xl self-center font-bold'
 					type='submit'
 					value='SIGN IN'
+					onClick={() => navigate('/interests')}
 				/>
 			</form>
 			<p className='text-xs text-[#3D7DCA] font-medium'>
