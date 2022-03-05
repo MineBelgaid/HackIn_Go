@@ -5,15 +5,18 @@ import Interests from './components/Interests';
 import Register from './components/Register';
 import Navigation from "./components/Navigation";
 import SignIn from './components/SignIn';
+import Map from './components/Map';
 
 function App() {
 	return (
-		<Routes>
-			<Route exact path='/' element={<Home />} />
-			<Route exact path='/SignIn' element={<SignIn />} />
-			<Route exact path='/Register' element={<Register />} />
-			<Route exact path='/Interests' element={<Navigation section={<Interests />} />} />
-		</Routes>
+		// <Routes>
+		// 	<Route exact path='/' element={<Home />} />
+		// 	<Route exact path='/SignIn' element={<SignIn />} />
+		// 	<Route exact path='/Register' element={<Register />} />
+		// 	<Route exact path='/Interests' element={<Navigation section={<Interests />} />} />
+		// 	<Route exact path='/Map' element={<Navigation section={<Map />} />} />
+		// </Routes>
+		<Map />
 	);
 }
 

@@ -1,5 +1,9 @@
 const Navbar = () => {
-	const showNavmenu = () => document.getElementById('navmenu').classList.add('show-navmenu');
+	const showNavmenu = () => {
+		document.getElementById('navmenu').classList.add('show-navmenu');
+		const eventsMap = document.getElementById('events-map');
+		eventsMap && eventsMap.classList.add('hidden');
+	}
 
 	return (
 		<div className='fixed inset-x-0 top-0 px-5 py-2 flex justify-end h-[4.5rem]'>

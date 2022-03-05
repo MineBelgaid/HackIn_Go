@@ -3,9 +3,13 @@ import { Link } from 'react-router-dom';
 const NavMenu = () => {
 	let avatarSrc = 'account-avatar.png';
 	let userName = 'Hadjer Bouchenine';
+	let userScore = 20;
 
-	const hideNavmenu = () =>
+	const hideNavmenu = () => {
 		document.getElementById('navmenu').classList.remove('show-navmenu');
+		const eventsMap = document.getElementById('events-map');
+		eventsMap && eventsMap.classList.remove('hidden');
+	}
 
 	return (
 		<section
@@ -22,6 +26,7 @@ const NavMenu = () => {
 			<div className='flex flex-col items-center gap-5'>
 				<img className='w-3/5' src={avatarSrc} alt='Avatar' />
 				<h1 className='text-lg text-white font-bold'>{userName}</h1>
+				<h1 className='text-xl text-white font-bold'>Your score: {userScore}</h1>
 			</div>
 			<nav className='flex flex-col gap-4 w-1/2'>
 				<Link to='/' className='flex gap-2 items-center'>
