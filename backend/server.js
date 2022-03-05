@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const Event = require('./models/event');
 
 require('dotenv').config();
 
@@ -21,3 +22,10 @@ mongoose
 		);
 	})
 	.catch((error) => console.log(`ERROR_CONNECTING_DATABASE:${error}`));
+
+app.get('/event/:id', (req, res) => {
+	let eventId = req.params.id;
+	Event.findById(eventId).then(event => {
+		res.send(event);
+	});
+})

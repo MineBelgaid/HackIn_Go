@@ -1,16 +1,21 @@
 import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import EventDetails from "./EventDetails";
+import Navigation from "../Navigation";
 
 const Event = () => {
+    const [event, setEvent] = useState(null);
     let { eventId } = useParams();
-    console.log(eventId);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/event/${eventId}`)
+        .then(res => res.json()).then(data => setEvent(data));
+    })
 
     return (
-        <section>
-            
-            {/* <h1>{location.name}</h1>
-            <p>{location.description}</p>
-            <h2>Date: {location.time.start} ---&gt; {location.time.end}</h2> */}
-        </section>
+        <div>
+            {event && <Navigation section={<EventDetails event={event}/>}/>}
+        </div>
     );
 }
  
