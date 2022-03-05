@@ -1,5 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 const Interests = () => {
     // let user_interests= [];
+	let navigate= useNavigate();
 	let possible_interests = [
 		'Medecine',
 		'Entertainement',
@@ -19,11 +22,11 @@ const Interests = () => {
     const interestClicked = (e) => e.target.classList.toggle('picked-interest');
 
     const confirmChoices = () => {
-
+		navigate('/Map');
     }
 
     const abortChoices = () => {
-
+		navigate('/');
     }
 
 	return (
