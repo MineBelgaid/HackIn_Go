@@ -1,7 +1,9 @@
 // import { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { useNavigate } from 'react-router-dom';
 
 const Map = () => {
+    let navigate = useNavigate();
 	let events = [
 		{
 			_id: { $oid: '62231bfc362b811538257b7c' },
@@ -31,11 +33,7 @@ const Map = () => {
 
 	return (
 		<section id='events-map' className='absolute inset-0 pt-20'>
-			<MapContainer
-				className='h-full'
-				center={[36.704706, 3.172]}
-				zoom={16}
-			>
+			<MapContainer className='h-full' center={[36.704706, 3.172]} zoom={16}>
 				<TileLayer
 					attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 					url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
@@ -50,7 +48,7 @@ const Map = () => {
 				</Marker>
 				; */}
 				{events
-					? events.Map((event) => {
+					? events.map((event) => {
 							console.log(event);
 							return (
 								<Marker
@@ -58,6 +56,11 @@ const Map = () => {
 										event.location.x.$numberDouble,
 										event.location.y.$numberDouble,
 									]}
+                                    eventHandlers={
+                                        {
+                                            click: () => navigate(`/Event/${event._id.$oid}`)
+                                        }
+                                    }
 								>
 									<Popup>{event.name}</Popup>
 								</Marker>
