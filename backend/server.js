@@ -14,18 +14,18 @@ app.use(cors());
 app.use(express.json());
 
 mongoose
-	.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-	.then((value) => {
-		console.log('Database connected successfully!');
-		app.listen(port, host, () =>
-			console.log(`Server is running on: http://${host}:${port}`)
-		);
-	})
-	.catch((error) => console.log(`ERROR_CONNECTING_DATABASE:${error}`));
+    .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then((value) => {
+        console.log('Database connected successfully!!');
+        app.listen(port, host, () =>
+            console.log(`Server is running on: http://${host}:${port}`)
+        );
+    })
+    .catch((error) => console.log(`ERROR_CONNECTING_DATABASE:${error}`));
 
 app.get('/event/:id', (req, res) => {
-	let eventId = req.params.id;
-	Event.findById(eventId).then(event => {
-		res.send(event);
-	});
+    let eventId = req.params.id;
+    Event.findById(eventId).then(event => {
+        res.send(event);
+    });
 })
